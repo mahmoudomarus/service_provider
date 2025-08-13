@@ -14,8 +14,6 @@ import {
   MoreHorizontal
 } from 'lucide-react';
 import { useAuth } from '@/components/AuthProvider';
-import { ModalProviders } from '@/providers/modal-providers';
-import { useModal } from '@/hooks/use-modal-store';
 
 // This will connect to the real backend API endpoints
 // GET /api/v1/rental/properties/my-properties
@@ -73,7 +71,6 @@ export function HostDashboardContent() {
   const [error, setError] = useState<string | null>(null);
   
   const { user, session } = useAuth();
-  const { onOpen } = useModal();
 
   // Fetch real data from backend
   useEffect(() => {
@@ -145,7 +142,8 @@ export function HostDashboardContent() {
       }, [user, session]);
 
   const handleAddProperty = () => {
-    onOpen('create-property');
+    // TODO: Implement property creation modal
+    alert('Property creation feature coming soon! This will open a modal to add new properties.');
   };
 
   if (isLoading) {
